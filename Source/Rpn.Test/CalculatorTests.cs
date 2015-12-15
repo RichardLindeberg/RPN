@@ -103,6 +103,19 @@ namespace Rpn.Test
             var actaul = calculator.Calculate();
             Assert.AreEqual(expected, actaul, "Wrong result");
         }
+
+        [Test]
+        public void Givven3_3_Multiply_Sqrt_ResultIs_3()
+        {
+            var expected = 3M;
+            var calculator = new Calculator();
+            calculator.AddNumber(3);
+            calculator.AddNumber(3);
+            calculator.AddOperator(Operator.Multiply);
+            calculator.AddOperator(Operator.Sqrt);
+            var actaul = calculator.Calculate();
+            Assert.AreEqual(expected, actaul, "Wrong result");
+        }
     }
 }
 

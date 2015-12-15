@@ -12,6 +12,11 @@ namespace Rpn.Core
             _inputQueue.Enqueue(new NumberInput(number));
         }
 
+        public void AddOperator(IOperator @operator)
+        {
+            _inputQueue.Enqueue(@operator);
+        }
+
         public void AddOperator(Operator @operator)
         {
             IOperator op;
