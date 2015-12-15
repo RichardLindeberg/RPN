@@ -1,9 +1,0 @@
-C:\Projects\RPN\Rrpn.Console\Rpn.Test\bin\Debug\Rpn.Test.dll
-C:\Projects\RPN\Rrpn.Console\Rpn.Test\bin\Debug\Rpn.Test.pdb
-C:\Projects\RPN\Rrpn.Console\Rpn.Test\bin\Debug\nunit.framework.dll
-C:\Projects\RPN\Rrpn.Console\Rpn.Test\bin\Debug\Rpn.Core.dll
-C:\Projects\RPN\Rrpn.Console\Rpn.Test\bin\Debug\Rpn.Core.pdb
-C:\Projects\RPN\Rrpn.Console\Rpn.Test\bin\Debug\nunit.framework.xml
-C:\Projects\RPN\Rrpn.Console\Rpn.Test\obj\Debug\Rpn.Test.csprojResolveAssemblyReference.cache
-C:\Projects\RPN\Rrpn.Console\Rpn.Test\obj\Debug\Rpn.Test.dll
-C:\Projects\RPN\Rrpn.Console\Rpn.Test\obj\Debug\Rpn.Test.pdb

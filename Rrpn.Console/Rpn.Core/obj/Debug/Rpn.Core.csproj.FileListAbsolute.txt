@@ -1,5 +1,0 @@
-C:\Projects\RPN\Rrpn.Console\Rpn.Core\bin\Debug\Rpn.Core.dll
-C:\Projects\RPN\Rrpn.Console\Rpn.Core\bin\Debug\Rpn.Core.pdb
-C:\Projects\RPN\Rrpn.Console\Rpn.Core\obj\Debug\Rpn.Core.dll
-C:\Projects\RPN\Rrpn.Console\Rpn.Core\obj\Debug\Rpn.Core.pdb
-C:\Projects\RPN\Rrpn.Console\Rpn.Core\obj\Debug\Rpn.Core.csprojResolveAssemblyReference.cache
