@@ -1,0 +1,6 @@
+C:\Projects\RPN\Rrpn.Console\Rrpn.Console\bin\Debug\Rrpn.Console.exe.config
+C:\Projects\RPN\Rrpn.Console\Rrpn.Console\bin\Debug\Rrpn.Console.exe
+C:\Projects\RPN\Rrpn.Console\Rrpn.Console\bin\Debug\Rrpn.Console.pdb
+C:\Projects\RPN\Rrpn.Console\Rrpn.Console\obj\Debug\Rrpn.Console.csprojResolveAssemblyReference.cache
+C:\Projects\RPN\Rrpn.Console\Rrpn.Console\obj\Debug\Rrpn.Console.exe
+C:\Projects\RPN\Rrpn.Console\Rrpn.Console\obj\Debug\Rrpn.Console.pdb
