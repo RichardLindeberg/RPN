@@ -5,43 +5,59 @@ namespace Rpn.Core
 {
     public class Calculator
     {
-        private Queue<IInput> stack = new Queue<IInput>();
+        private readonly Queue<IInput> _inputQueue = new Queue<IInput>();
 
         public void AddNumber(Decimal number)
         {
-            stack.Enqueue(new NumberInput(number));
+            _inputQueue.Enqueue(new NumberInput(number));
         }
 
         public void AddOperator(Operator @operator)
         {
-            stack.Enqueue(new OperatorInput(@operator));
+            IOperator op;
+            switch (@operator)
+            {
+                case Operator.Plus:
+                    op = new PlusOperator();
+                    break;
+                case Operator.Minus:
+                    op = new MinusOperator();
+                    break;
+                case Operator.Dividie:
+                    op = new DivideOperator();
+                    break;
+                case Operator.Multiply:
+                    op = new MultiplyOperator();
+                    break;
+                case Operator.Sqrt:
+                    op = new SqrtOperator();
+                    break;
+                default:
+                    throw new InvalidOperationException($"{@operator} is not a known operator");
+            }
+            _inputQueue.Enqueue(op);
+
         }
 
         public decimal Calculate()
         {
-            return DoCalculation();
-        }
-
-        private decimal DoCalculation()
-        {
             var numbers = new Stack<Decimal>();
-            while (stack.Count > 0)
+            while (_inputQueue.Count > 0)
             {
 
-                var dequed = stack.Dequeue();
+                var dequed = _inputQueue.Dequeue();
 
                 var number = dequed as NumberInput;
                 if (number != null)
                 {
                     numbers.Push(number.Number);
                 }
-                
-                var op = dequed as OperatorInput;
+
+                var op = dequed as IOperator;
                 if (op != null)
                 {
-                    var numberA = numbers.Pop();
-                    var numberB = numbers.Pop();
-                    numbers.Push(Calculate(numberA, numberB, op.Operator));
+
+                    numbers.Push(op.Calculate(numbers));
                 }
             }
             if (numbers.Count > 1)
@@ -49,24 +65,6 @@ namespace Rpn.Core
                 throw new InvalidOperationException("The stack is not empty, have you forgotten an operator?");
             }
             return numbers.Pop();
-            
-        }
-
-        private decimal Calculate(Decimal numberA, Decimal numberB, Operator @operator)
-        {
-            switch (@operator)
-            {
-                case Operator.Plus:
-                    return numberA + numberB;
-                case Operator.Minus:
-                    return numberA - numberB;
-                case Operator.Dividie:
-                    return numberA / numberB;
-                case Operator.Multiply:
-                    return numberA*numberB;
-                default: 
-                    throw new InvalidOperationException($"{@operator} is not a known operator");
-            }
         }
     }
 }

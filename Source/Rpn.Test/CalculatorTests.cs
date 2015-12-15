@@ -92,6 +92,17 @@ namespace Rpn.Test
             var actaul = calculator.Calculate();
             Assert.AreEqual(expected, actaul, "Wrong result");
         }
+
+        [Test]
+        public void Givven9_Sqrt_ResultIs_3()
+        {
+            var expected = 3M;
+            var calculator = new Calculator();
+            calculator.AddNumber(9);
+            calculator.AddOperator(Operator.Sqrt);
+            var actaul = calculator.Calculate();
+            Assert.AreEqual(expected, actaul, "Wrong result");
+        }
     }
 }
 
