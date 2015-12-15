@@ -24,28 +24,32 @@ namespace Rpn.Core
 
         private decimal DoCalculation()
         {
-            var numbers = new Queue<Decimal>();
+            var numbers = new Stack<Decimal>();
             while (stack.Count > 0)
             {
 
-                var popped = stack.Dequeue();
+                var dequed = stack.Dequeue();
 
-                var number = popped as NumberInput;
+                var number = dequed as NumberInput;
                 if (number != null)
                 {
-                    numbers.Enqueue(number.Number);
+                    numbers.Push(number.Number);
                 }
                 
-                var op = popped as OperatorInput;
+                var op = dequed as OperatorInput;
                 if (op != null)
                 {
-                    var numberA = numbers.Dequeue();
-                    var numberB = numbers.Dequeue();
-                    numbers.Enqueue(Calculate(numberA, numberB, op.Operator));
+                    var numberA = numbers.Pop();
+                    var numberB = numbers.Pop();
+                    numbers.Push(Calculate(numberA, numberB, op.Operator));
                 }
             }
-            return numbers.Dequeue();
-            throw new InvalidOperationException("What have you done? Implemented a new class withouth handling it?");
+            if (numbers.Count > 1)
+            {
+                throw new InvalidOperationException("The stack is not empty, have you forgotten an operator?");
+            }
+            return numbers.Pop();
+            
         }
 
         private decimal Calculate(Decimal numberA, Decimal numberB, Operator @operator)

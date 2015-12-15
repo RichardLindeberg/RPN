@@ -20,7 +20,7 @@ namespace Rpn.Test
             calculator.AddNumber(5);
             calculator.AddOperator(Operator.Plus);
             var actaul = calculator.Calculate();
-            Assert.AreEqual(actaul, expected, "Wrong result");
+            Assert.AreEqual(expected, actaul, "Wrong result");
         }
 
         [Test]
@@ -34,7 +34,63 @@ namespace Rpn.Test
             calculator.AddOperator(Operator.Plus);
             calculator.AddOperator(Operator.Plus);
             var actaul = calculator.Calculate();
-            Assert.AreEqual(actaul, expected, "Wrong result");
+            Assert.AreEqual(expected, actaul, "Wrong result");
+        }
+
+        [Test]
+        public void FiveAndFivePlussFivePlussIsFiften()
+        {
+            var expected = 15M;
+            var calculator = new Calculator();
+            calculator.AddNumber(5);
+            calculator.AddNumber(5);
+            calculator.AddOperator(Operator.Plus);
+            calculator.AddNumber(5);
+            calculator.AddOperator(Operator.Plus);
+            var actaul = calculator.Calculate();
+            Assert.AreEqual(expected, actaul, "Wrong result");
+        }
+
+        [Test]
+        public void OneTwoPlusThreemultiplyIs6()
+        {
+            var expected = 9M;
+            var calculator = new Calculator();
+            calculator.AddNumber(1);
+            calculator.AddNumber(2);
+            calculator.AddOperator(Operator.Plus);
+            calculator.AddNumber(3);
+            calculator.AddOperator(Operator.Multiply);
+            var actaul = calculator.Calculate();
+            Assert.AreEqual(expected, actaul, "Wrong result");
+        }
+
+        [Test]
+        public void ThreeOneTwoPlusMultiplyIs6()
+        {
+            var expected = 9M;
+            var calculator = new Calculator();
+            calculator.AddNumber(3);
+            calculator.AddNumber(1);
+            calculator.AddNumber(2);
+            calculator.AddOperator(Operator.Plus);
+            calculator.AddOperator(Operator.Multiply);
+            var actaul = calculator.Calculate();
+            Assert.AreEqual(expected, actaul, "Wrong result");
+        }
+
+        [Test]
+        public void Givven3_5_6_Plus_Multiply_ResultIs_33()
+        {
+            var expected = 33M;
+            var calculator = new Calculator();
+            calculator.AddNumber(3);
+            calculator.AddNumber(5);
+            calculator.AddNumber(6);
+            calculator.AddOperator(Operator.Plus);
+            calculator.AddOperator(Operator.Multiply);
+            var actaul = calculator.Calculate();
+            Assert.AreEqual(expected, actaul, "Wrong result");
         }
     }
 }
