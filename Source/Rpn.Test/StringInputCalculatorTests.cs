@@ -32,6 +32,25 @@ namespace Rpn.Test
             
             Assert.AreEqual(expected, actual, "Wrong result");
         }
+        [Test]
+        public void GivvenSingleLine_3_5_6_Plus_Multiply_ResultIs_33()
+        {
+            var expected = "33";
+            var calculator = new StringInputCalculator();
+            var actual = calculator.EnterNewData("3 5 6 + *");
+            
+            Assert.AreEqual(expected, actual, "Wrong result");
+        }
+
+        [Test]
+        public void GivvenSingleLineNoOperatorSpace_3_5_6_Plus_Multiply_ResultIs_33()
+        {
+            var expected = "33";
+            var calculator = new StringInputCalculator();
+            var actual = calculator.EnterNewData("3 5 6+*");
+
+            Assert.AreEqual(expected, actual, "Wrong result");
+        }
 
         [Test]
         public void Givven9_Sqrt_ResultIs_3()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Text;
 
 namespace Rpn.Core
 {
@@ -11,6 +12,17 @@ namespace Rpn.Core
 
         public string EnterNewData(string input)
         {
+            var splitted_input = input.Split(' ');
+            string lastResult = "no input";
+            foreach (var str in splitted_input)
+            {
+                lastResult = ParseInput(str);
+            }
+            return lastResult;
+        }
+
+        private string ParseInput(string input)
+        {
             decimal number;
             if (Decimal.TryParse(input, out number))
             {
@@ -18,7 +30,7 @@ namespace Rpn.Core
                 return number.ToString(CultureInfo.InvariantCulture);
             }
             IOperator op;
-            if (input.TryParse(out op))
+            if (OperatorParser.TryParse(input, out op))
             {
                 var result = op.Calculate(numberStack);
                 numberStack.Push(result);
@@ -28,9 +40,9 @@ namespace Rpn.Core
         }
     }
 
-    public static class OperatorParserExtension
+    public static class OperatorParser
     {
-        public static bool TryParse(this string input, out IOperator @operator)
+        public static bool TryParse(string input, out IOperator @operator)
         {
             switch (input.ToLowerInvariant())
             {
