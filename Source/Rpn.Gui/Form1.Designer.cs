@@ -201,7 +201,7 @@
             this.Pluss.TabIndex = 14;
             this.Pluss.Text = "+";
             this.Pluss.UseVisualStyleBackColor = true;
-            this.Pluss.Click += new System.EventHandler(this.Pluss_Click);
+            this.Pluss.Click += new System.EventHandler(this.One_Click);
             // 
             // Divide
             // 
@@ -211,7 +211,7 @@
             this.Divide.TabIndex = 15;
             this.Divide.Text = "-";
             this.Divide.UseVisualStyleBackColor = true;
-            this.Divide.Click += new System.EventHandler(this.Divide_Click);
+            this.Divide.Click += new System.EventHandler(this.One_Click);
             // 
             // Multiply
             // 
@@ -221,7 +221,7 @@
             this.Multiply.TabIndex = 16;
             this.Multiply.Text = "*";
             this.Multiply.UseVisualStyleBackColor = true;
-            this.Multiply.Click += new System.EventHandler(this.Multiply_Click);
+            this.Multiply.Click += new System.EventHandler(this.One_Click);
             // 
             // Dividie
             // 
@@ -231,7 +231,7 @@
             this.Dividie.TabIndex = 17;
             this.Dividie.Text = "/";
             this.Dividie.UseVisualStyleBackColor = true;
-            this.Dividie.Click += new System.EventHandler(this.Dividie_Click);
+            this.Dividie.Click += new System.EventHandler(this.One_Click);
             // 
             // Sqrt
             // 
@@ -241,7 +241,7 @@
             this.Sqrt.TabIndex = 18;
             this.Sqrt.Text = "Sqrt";
             this.Sqrt.UseVisualStyleBackColor = true;
-            this.Sqrt.Click += new System.EventHandler(this.Sqrt_Click);
+            this.Sqrt.Click += new System.EventHandler(this.One_Click);
             // 
             // button1
             // 

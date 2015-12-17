@@ -8,5 +8,10 @@ namespace Rpn.Core
         {
             return numberA + numberB;
         }
+
+        public override string ToString()
+        {
+            return "+";
+        }
     }
 }

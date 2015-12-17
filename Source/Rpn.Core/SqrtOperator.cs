@@ -8,5 +8,10 @@ namespace Rpn.Core
         {
             return (Decimal) Math.Sqrt((Double)numberA);
         }
+
+        public override string ToString()
+        {
+            return ((char)0x221A).ToString(); 
+        }
     }
 }

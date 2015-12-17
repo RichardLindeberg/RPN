@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Rpn.Core
 {
@@ -7,14 +8,42 @@ namespace Rpn.Core
     {
         private readonly List<IInput> _inputQueue = new List<IInput>();
 
+        public Calculator()
+        {
+            _stringParserForcalculator = new StringParserForcalculator(this);
+        }
+
+        private StringParserForcalculator _stringParserForcalculator;
+
+        public void Add(string input)
+        {
+            _stringParserForcalculator.Parse(input);
+        }
+
+
+
+        public string GetInputAsString()
+        {
+            var res = "";
+            foreach (var input in _inputQueue)
+            {
+                res += input.ToString();
+                if (input is NumberInput)
+                {
+                    res += " ";
+                }
+            }
+            return res.Trim();
+        }
+
         public void Add(Decimal number)
         {
             _inputQueue.Add(new NumberInput(number));
         }
        
-        public void Add(IOperator @operator)
+        public void Add(IInput input)
         {
-            _inputQueue.Add(@operator);
+            _inputQueue.Add(input);
         }
 
         public void Add(OperatorEnum operatorEnum)
