@@ -1,4 +1,4 @@
 # RPN
-Very simple Rpn (Reveresed Polish Notation) calculator. 
+Very simple Rpn (Reverse Polish Notation) calculator. 
 
 Only -+-*/ and sqrt are implemented. 
