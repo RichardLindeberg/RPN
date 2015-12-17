@@ -33,6 +33,7 @@ namespace Rpn.Core
                     res += " ";
                 }
             }
+            res += _stringParserForcalculator.NumberBuffer;
             return res.Trim();
         }
 
@@ -97,6 +98,18 @@ namespace Rpn.Core
                 throw new InvalidOperationException("The stack is not empty, have you forgotten an operator?");
             }
             return numbers.Pop();
+        }
+
+        public string CalculateAsString()
+        {
+            try
+            {
+                return Calculate().ToString(CultureInfo.CurrentCulture);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return "Not computable";
+            }
         }
     }
 }

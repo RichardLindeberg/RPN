@@ -12,6 +12,9 @@ namespace Rpn.Core
         }
 
         private string _currentNumber;
+
+        public string NumberBuffer => _currentNumber;
+
         public void Parse(string input)
         {
             if (string.IsNullOrEmpty(input))

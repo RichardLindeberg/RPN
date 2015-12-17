@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleInputOperator.cs" />
     <Compile Include="SqrtOperator.cs" />
+    <Compile Include="StringParserForcalculator.cs" />
     <Compile Include="TwoInputOperator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -25,12 +25,19 @@ namespace Rpn.Gui
             {
                 throw new ArgumentOutOfRangeException("Sender must be a button");
             }
-            _calculator.Add(btn.Text);
+            AddAndCalculate(btn.Text);
         }
 
         private void Enter_Click(object sender, EventArgs e)
         {
-            _calculator.Add(Environment.NewLine);
+            AddAndCalculate(Environment.NewLine);
+        }
+
+        private void AddAndCalculate(string input)
+        {
+            _calculator.Add(input);
+            textBoxInput.Text = _calculator.GetInputAsString();
+            textBoxResult.Text = _calculator.CalculateAsString();
         }
 
         private void button1_Click(object sender, EventArgs e)

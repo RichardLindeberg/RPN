@@ -153,6 +153,58 @@ namespace Rpn.Test
             var actaul = calculator.Calculate();
             Assert.AreEqual(expected, actaul, "Wrong result");
         }
+
+        [Test]
+        public void PlussMultiplyTest()
+        {
+            // 2 2 3 *+ = 8
+            // 2 + (2*3) = 8
+            var expected = 8;
+            var calculator = new Calculator();
+            calculator.Add(2);
+            calculator.Add(2);
+            calculator.Add(3);
+            calculator.Add(new MultiplyOperator());
+            calculator.Add(new PlusOperator());
+            var actual = calculator.Calculate();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void PlussMultiplyTest2()
+        {
+            // 2 2 * 3 3 *+ = 13
+            // (2*2) + (3*3) = 13
+            var expected = 13;
+            var calculator = new Calculator();
+            calculator.Add(2);
+            calculator.Add(2);
+            calculator.Add(new MultiplyOperator());
+            calculator.Add(3);
+            calculator.Add(3);
+            calculator.Add(new MultiplyOperator());
+            calculator.Add(new PlusOperator());
+            var actual = calculator.Calculate();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void MultiplyDivideTest()
+        {
+            //  4 2 * 2 2 */ = 0.5
+            // (2*2) / (2*4) = 0.5
+            var expected = 0.5;
+            var calculator = new Calculator();
+            calculator.Add(2);
+            calculator.Add(2);
+            calculator.Add(new MultiplyOperator());
+            calculator.Add(2);
+            calculator.Add(4);
+            calculator.Add(new MultiplyOperator());
+            calculator.Add(new DivideOperator());
+            var actual = calculator.Calculate();
+            Assert.AreEqual(expected, actual, calculator.GetInputAsString());
+        }
     }
 
     [TestFixture]
@@ -256,6 +308,24 @@ namespace Rpn.Test
             var actual = calculator.GetInputAsString();
             Assert.AreEqual(expected, actual);
         }
+
+        [Test]
+        public void PlussMultiplyTest()
+        {
+            // 2 2 3 *+
+            var expected = "8";
+            var calculator = new Calculator();
+            calculator.Add("2");
+            calculator.Add(Environment.NewLine);
+            calculator.Add("2");
+            calculator.Add(Environment.NewLine);
+            calculator.Add("3");
+            calculator.Add("*");
+            calculator.Add("+");
+            var actual = calculator.CalculateAsString();
+            Assert.AreEqual(expected, actual);
+        }
+        
     }
 }
 
