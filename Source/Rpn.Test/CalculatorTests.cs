@@ -16,9 +16,9 @@ namespace Rpn.Test
         {
             var expected = 10M;
             var calculator = new Calculator();
-            calculator.AddNumber(5);
-            calculator.AddNumber(5);
-            calculator.AddOperator(OperatorEnum.Plus);
+            calculator.Add(5);
+            calculator.Add(5);
+            calculator.Add(OperatorEnum.Plus);
             var actaul = calculator.Calculate();
             Assert.AreEqual(expected, actaul, "Wrong result");
         }
@@ -28,11 +28,11 @@ namespace Rpn.Test
         {
             var expected = 15M;
             var calculator = new Calculator();
-            calculator.AddNumber(5);
-            calculator.AddNumber(5);
-            calculator.AddNumber(5);
-            calculator.AddOperator(OperatorEnum.Plus);
-            calculator.AddOperator(OperatorEnum.Plus);
+            calculator.Add(5);
+            calculator.Add(5);
+            calculator.Add(5);
+            calculator.Add(OperatorEnum.Plus);
+            calculator.Add(OperatorEnum.Plus);
             var actaul = calculator.Calculate();
             Assert.AreEqual(expected, actaul, "Wrong result");
         }
@@ -42,11 +42,11 @@ namespace Rpn.Test
         {
             var expected = 15M;
             var calculator = new Calculator();
-            calculator.AddNumber(5);
-            calculator.AddNumber(5);
-            calculator.AddOperator(OperatorEnum.Plus);
-            calculator.AddNumber(5);
-            calculator.AddOperator(OperatorEnum.Plus);
+            calculator.Add(5);
+            calculator.Add(5);
+            calculator.Add(OperatorEnum.Plus);
+            calculator.Add(5);
+            calculator.Add(OperatorEnum.Plus);
             var actaul = calculator.Calculate();
             Assert.AreEqual(expected, actaul, "Wrong result");
         }
@@ -56,11 +56,11 @@ namespace Rpn.Test
         {
             var expected = 9M;
             var calculator = new Calculator();
-            calculator.AddNumber(1);
-            calculator.AddNumber(2);
-            calculator.AddOperator(OperatorEnum.Plus);
-            calculator.AddNumber(3);
-            calculator.AddOperator(OperatorEnum.Multiply);
+            calculator.Add(1);
+            calculator.Add(2);
+            calculator.Add(OperatorEnum.Plus);
+            calculator.Add(3);
+            calculator.Add(OperatorEnum.Multiply);
             var actaul = calculator.Calculate();
             Assert.AreEqual(expected, actaul, "Wrong result");
         }
@@ -70,11 +70,11 @@ namespace Rpn.Test
         {
             var expected = 9M;
             var calculator = new Calculator();
-            calculator.AddNumber(3);
-            calculator.AddNumber(1);
-            calculator.AddNumber(2);
-            calculator.AddOperator(OperatorEnum.Plus);
-            calculator.AddOperator(OperatorEnum.Multiply);
+            calculator.Add(3);
+            calculator.Add(1);
+            calculator.Add(2);
+            calculator.Add(OperatorEnum.Plus);
+            calculator.Add(OperatorEnum.Multiply);
             var actaul = calculator.Calculate();
             Assert.AreEqual(expected, actaul, "Wrong result");
         }
@@ -84,11 +84,11 @@ namespace Rpn.Test
         {
             var expected = 33M;
             var calculator = new Calculator();
-            calculator.AddNumber(3);
-            calculator.AddNumber(5);
-            calculator.AddNumber(6);
-            calculator.AddOperator(OperatorEnum.Plus);
-            calculator.AddOperator(OperatorEnum.Multiply);
+            calculator.Add(3);
+            calculator.Add(5);
+            calculator.Add(6);
+            calculator.Add(OperatorEnum.Plus);
+            calculator.Add(OperatorEnum.Multiply);
             var actaul = calculator.Calculate();
             Assert.AreEqual(expected, actaul, "Wrong result");
         }
@@ -98,8 +98,8 @@ namespace Rpn.Test
         {
             var expected = 3M;
             var calculator = new Calculator();
-            calculator.AddNumber(9);
-            calculator.AddOperator(OperatorEnum.Sqrt);
+            calculator.Add(9);
+            calculator.Add(OperatorEnum.Sqrt);
             var actaul = calculator.Calculate();
             Assert.AreEqual(expected, actaul, "Wrong result");
         }
@@ -109,10 +109,10 @@ namespace Rpn.Test
         {
             var expected = 3M;
             var calculator = new Calculator();
-            calculator.AddNumber(3);
-            calculator.AddNumber(3);
-            calculator.AddOperator(OperatorEnum.Multiply);
-            calculator.AddOperator(OperatorEnum.Sqrt);
+            calculator.Add(3);
+            calculator.Add(3);
+            calculator.Add(OperatorEnum.Multiply);
+            calculator.Add(OperatorEnum.Sqrt);
             var actaul = calculator.Calculate();
             Assert.AreEqual(expected, actaul, "Wrong result");
         }
@@ -122,9 +122,9 @@ namespace Rpn.Test
         {
             var expected = 3M;
             var calculator = new Calculator();
-            calculator.AddNumber(5);
-            calculator.AddNumber(2);
-            calculator.AddOperator(OperatorEnum.Minus);
+            calculator.Add(5);
+            calculator.Add(2);
+            calculator.Add(OperatorEnum.Minus);
             var actaul = calculator.Calculate();
             Assert.AreEqual(expected, actaul, "Wrong result");
         }
@@ -134,9 +134,9 @@ namespace Rpn.Test
         {
             var expected = 3M;
             var calculator = new Calculator();
-            calculator.AddNumber(6);
-            calculator.AddNumber(2);
-            calculator.AddOperator(OperatorEnum.Dividie);
+            calculator.Add(6);
+            calculator.Add(2);
+            calculator.Add(OperatorEnum.Dividie);
             var actaul = calculator.Calculate();
             Assert.AreEqual(expected, actaul, "Wrong result");
         }
@@ -147,9 +147,9 @@ namespace Rpn.Test
         {
             var expected = 2.5M;
             var calculator = new Calculator();
-            calculator.AddNumber(5);
-            calculator.AddNumber(2);
-            calculator.AddOperator(OperatorEnum.Dividie);
+            calculator.Add(5);
+            calculator.Add(2);
+            calculator.Add(OperatorEnum.Dividie);
             var actaul = calculator.Calculate();
             Assert.AreEqual(expected, actaul, "Wrong result");
         }

@@ -5,19 +5,19 @@ namespace Rpn.Core
 {
     public class Calculator
     {
-        private readonly Queue<IInput> _inputQueue = new Queue<IInput>();
+        private readonly List<IInput> _inputQueue = new List<IInput>();
 
-        public void AddNumber(Decimal number)
+        public void Add(Decimal number)
         {
-            _inputQueue.Enqueue(new NumberInput(number));
+            _inputQueue.Add(new NumberInput(number));
+        }
+       
+        public void Add(IOperator @operator)
+        {
+            _inputQueue.Add(@operator);
         }
 
-        public void AddOperator(IOperator @operator)
-        {
-            _inputQueue.Enqueue(@operator);
-        }
-
-        public void AddOperator(OperatorEnum operatorEnum)
+        public void Add(OperatorEnum operatorEnum)
         {
             IOperator op;
             switch (operatorEnum)
@@ -40,31 +40,29 @@ namespace Rpn.Core
                 default:
                     throw new InvalidOperationException($"{operatorEnum} is not a known operator");
             }
-            _inputQueue.Enqueue(op);
+            _inputQueue.Add(op);
 
         }
 
         public decimal Calculate()
         {
             var numbers = new Stack<Decimal>();
-            while (_inputQueue.Count > 0)
+            foreach (var input in _inputQueue)
             {
-
-                var dequed = _inputQueue.Dequeue();
-
-                var number = dequed as NumberInput;
+                var number = input as NumberInput;
                 if (number != null)
                 {
                     numbers.Push(number.Number);
                 }
 
-                var op = dequed as IOperator;
+                var op = input as IOperator;
                 if (op != null)
                 {
                     var opResult = op.Calculate(numbers);
                     numbers.Push(opResult);
                 }
             }
+           
             if (numbers.Count > 1)
             {
                 throw new InvalidOperationException("The stack is not empty, have you forgotten an operator?");
