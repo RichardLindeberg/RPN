@@ -17,28 +17,28 @@ namespace Rpn.Core
             _inputQueue.Enqueue(@operator);
         }
 
-        public void AddOperator(Operator @operator)
+        public void AddOperator(OperatorEnum operatorEnum)
         {
             IOperator op;
-            switch (@operator)
+            switch (operatorEnum)
             {
-                case Operator.Plus:
+                case OperatorEnum.Plus:
                     op = new PlusOperator();
                     break;
-                case Operator.Minus:
+                case OperatorEnum.Minus:
                     op = new MinusOperator();
                     break;
-                case Operator.Dividie:
+                case OperatorEnum.Dividie:
                     op = new DivideOperator();
                     break;
-                case Operator.Multiply:
+                case OperatorEnum.Multiply:
                     op = new MultiplyOperator();
                     break;
-                case Operator.Sqrt:
+                case OperatorEnum.Sqrt:
                     op = new SqrtOperator();
                     break;
                 default:
-                    throw new InvalidOperationException($"{@operator} is not a known operator");
+                    throw new InvalidOperationException($"{operatorEnum} is not a known operator");
             }
             _inputQueue.Enqueue(op);
 
@@ -61,8 +61,8 @@ namespace Rpn.Core
                 var op = dequed as IOperator;
                 if (op != null)
                 {
-
-                    numbers.Push(op.Calculate(numbers));
+                    var opResult = op.Calculate(numbers);
+                    numbers.Push(opResult);
                 }
             }
             if (numbers.Count > 1)

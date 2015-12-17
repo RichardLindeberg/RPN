@@ -5,11 +5,16 @@ namespace Rpn.Core
 {
     public abstract class SingleInputOperator : IOperator
     {
-        public decimal Calculate(Stack<decimal> stack)
+        public Decimal Calculate(Stack<Decimal> stack)
         {
             var numberA = stack.Pop();
             
             return PerformOperation(numberA);
+        }
+
+        public string ParseAndRemove(string input, out IOperator @operator)
+        {
+            throw new NotImplementedException();
         }
 
         protected abstract Decimal PerformOperation(Decimal numberA);

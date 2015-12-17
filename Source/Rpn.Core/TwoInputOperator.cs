@@ -3,25 +3,14 @@ using System.Collections.Generic;
 
 namespace Rpn.Core
 {
-    public class NoOperator : IOperator
-    {
-        public decimal Calculate(Stack<decimal> stack)
-        {
-            throw new InvalidOperationException("I'm no real operator");
-        }
-
-        public string ParseAndRemove(string input, out IOperator @operator)
-        {
-            throw new InvalidOperationException();
-        }
-    }
     public abstract class TwoInputOperator : IOperator
     {
-        public decimal Calculate(Stack<decimal> stack)
+        public Decimal Calculate(Stack<Decimal> stack)
         {
-            var numberA = stack.Pop();
-            var numberB = stack.Pop();
             
+            var numberB = stack.Pop();
+            var numberA = stack.Pop();
+
             return PerformOperation(numberA, numberB);
         }
 
